@@ -1,3 +1,6 @@
+.fa.fa-home {
+  color: white !important;
+}
 .fa {
   color: #612a14;
 }
@@ -95,7 +98,7 @@ ul.topnav li {float: left;}
 /* Style the links inside the list items */
 ul.topnav li a {
     display: inline-block;
-    color: white;
+    color: white !important;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
