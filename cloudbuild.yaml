@@ -4,6 +4,9 @@ steps:
   - name: gcr.io/cloud-builders/gsutil
     args: ["-m", "cp", "*.css", "gs://www.aikibudoofdenver.com/"]
   - name: gcr.io/cloud-builders/gsutil
+    args: ["-m", "cp", "img/*.pdf", "gs://www.aikibudoofdenver.com/"]
+  - name: gcr.io/cloud-builders/gsutil
     args: ["-m", "cp", "img/*.jpeg", "gs://www.aikibudoofdenver.com/img/"]
   - name: gcr.io/cloud-builders/gsutil
     args: ["-m", "cp", "img/*.jpg", "gs://www.aikibudoofdenver.com/img/"]
+    
