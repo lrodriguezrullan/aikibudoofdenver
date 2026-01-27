@@ -2,23 +2,23 @@
   color: white !important;
 }
 .fa {
-  color: #612a14;
+  color: gray;
 }
 a:link {
-  color: #612a14;
+  color: gray;
 }
 a:visited {
-  color: #612a14;
+  color: gray;
 }
 a:hover {
-  color: #612a14;
+  color: gray;
   text-decoration: underline;
 }
 a:active {
-  color: #612a14;
+  color: gray;
 }
 td.empty {
-  background-color: rgba(97, 42, 20, 0.3);
+  background-color: gray;
 }
 td.empty2 {
   background-color: white;
@@ -26,7 +26,7 @@ td.empty2 {
   padding: 5px;
 }
 td.empty3 {
-  background-color: rgba(97, 42, 20, 0.3);
+  background-color: gray;
   padding: 7px;
 }
 table {
@@ -34,14 +34,13 @@ table {
   margin-bottom: 16px;
 }
 th {
-  background-color: #612a14;
-  color: white;
-  border: 1px solid #7B442E !important;
+  background-color: white;
+  color: black;
 }
 th, td {
   padding: 15px;
   text-align: center;
-  border: 1px solid #612a14;
+  border: 1px solid black;
 }
 .no-border {
   border: 0 !important;
@@ -54,13 +53,12 @@ th, td {
   font-size: larger;
 }
 .top-header {
-  background-color: #612a14;
   height: 48px;
 }
 h1 {
   font-size: 400%;
 }
-h1, h2, h3, h4 {
+h1, h2, h3 {
   font-family: 'Kaushan Script', cursive;
 }
 h2 {
@@ -68,10 +66,13 @@ h2 {
   margin-left: -3px;
 }
 h4 {
+  margin-top: 26px; 
+  font-weight: bold;
   padding-bottom: 0px;
 }
 h5 {
   font-weight: bold;
+  padding-bottom: 0px;
 }
 footer {
   margin-bottom: 60px;
@@ -81,42 +82,48 @@ section {
   padding-bottom: 32px;
 }
 
-/*
-  top nav styles
-  Based on code from: http://www.w3schools.com/howto/howto_js_topnav.asp
-*/
-
-/* Remove margins and padding from the list, and add a black background color */
 ul.topnav {
     list-style-type: none;
     margin-bottom: 20px;
     overflow: hidden;
-    background-color: #612a14;
+    background-color: white;
 }
 
-/* Float the list items side by side */
-ul.topnav li {float: left;}
+ul.topnav li {
+  float: left;
+}
 
-/* Style the links inside the list items */
 ul.topnav li a {
     display: inline-block;
-    color: white !important;
+    color: dimgray;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    transition: 0.3s;
+    transition: 0.2s;
     font-size: 16px;
 }
 
-/* Change background color of links on hover */
-ul.topnav li a:hover {background-color: #7B442E;}
+ul.topnav li.icon {
+  display: none;
+}
 
-/* Hide the list item that contains the link that should open and close the topnav on small screens */
-ul.topnav li.icon {display: none;}
+ul.topnav li a.selected {
+  color: black;
+  font-weight: bolder;
+}
 
-/* When the screen is less than 680 pixels wide, hide all list items, except for the first one ("Home"). Show the list item that contains the link to open and close the topnav (li.icon) */
+ul.topnav li a:hover {
+  color: black;
+}
+
+ul.topnav li.icon a {
+  font-size: 24px;
+}
+
 @media screen and (max-width:680px) {
-  ul.topnav li:not(:first-child) {display: none;}
+  ul.topnav li {
+    display: none;
+  }
   ul.topnav li.icon {
     float: right;
     display: inline-block;
@@ -125,11 +132,15 @@ ul.topnav li.icon {display: none;}
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens */
 @media screen and (max-width:680px) {
-  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive {
+    padding-top: 40px;
+    position: relative;
+  }
   ul.topnav.responsive li.icon {
     position: absolute;
     right: 0;
     top: 0;
+    margin-right: 15px;
   }
   ul.topnav.responsive li {
     float: none;
