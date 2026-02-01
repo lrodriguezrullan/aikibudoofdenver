@@ -12,6 +12,8 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 
@@ -37,6 +39,124 @@
 				x.className = "topnav container";
 			}
 		}
+
+		document.addEventListener("DOMContentLoaded", function() {
+			
+			const select = document.getElementById("date-of-visit");
+
+			const options = {
+  				weekday: "long",
+				year: "numeric",
+				month: "long",
+				day: "numeric",
+			};
+
+			const tomorrow = new Date();
+			const items = [];
+
+			for (let i = 1; i < 15; i++) {
+				const date = new Date(tomorrow);
+				date.setDate(tomorrow.getDate() + i);
+
+				if(date.getDay() != 2 && date.getDay() != 4 && date.getDay() != 6) {
+					continue;
+				}
+
+				items.push(date.toLocaleDateString("en-US", options));
+			}
+
+			items.forEach(function(item) {
+				const option = document.createElement("option");
+				option.value = item;
+				option.textContent = item; 
+				select.appendChild(option);
+			});
+
+			const form = document.querySelector("form");
+
+			const nameField = document.getElementById("name");
+			const emailField = document.getElementById("email");
+			const phoneField = document.getElementById("phone");
+			const dateField = document.getElementById("date-of-visit");
+
+			const nameFormGroup = document.getElementById("name-form-group");
+			const emailFormGroup = document.getElementById("email-form-group");
+			const phoneFormGroup = document.getElementById("phone-form-group");
+			const dateFormGroup = document.getElementById("date-of-visit-form-group");
+
+			nameField.addEventListener("input", function() {
+				if (!nameField.checkValidity()) {
+					nameFormGroup.classList.add("has-error");
+				} else {
+					nameFormGroup.classList.remove("has-error");
+				}
+			});
+
+			emailField.addEventListener("input", function() {
+				if (!emailField.checkValidity()) {
+					emailFormGroup.classList.add("has-error");
+				} else {
+					emailFormGroup.classList.remove("has-error");
+				}
+			});
+
+			phoneField.addEventListener("input", function() {
+				if (!phoneField.checkValidity()) {
+					phoneFormGroup.classList.add("has-error");
+				} else {
+					phoneFormGroup.classList.remove("has-error");
+				}
+			});
+
+			dateField.addEventListener("input", function() {
+				if (!dateField.checkValidity()) {
+					dateFormGroup.classList.add("has-error");
+				} else {
+					dateFormGroup.classList.remove("has-error");
+				}
+			});
+
+			form.addEventListener("submit", function(event) {
+
+				if (!nameField.checkValidity()) {
+					event.preventDefault();
+					nameFormGroup.classList.add("has-error");
+					nameField.focus();
+					return;
+				} else {
+					nameFormGroup.classList.remove("has-error");
+				}
+
+				if (!emailField.checkValidity()) {
+					event.preventDefault();
+					emailFormGroup.classList.add("has-error");
+					emailField.focus();
+					return;
+				} else {
+					emailFormGroup.classList.remove("has-error");
+				}
+
+				if (!phoneField.checkValidity()) {
+					event.preventDefault();
+					phoneFormGroup.classList.add("has-error");
+					phoneField.focus();
+					return;
+				} else {
+					phoneFormGroup.classList.remove("has-error");
+				}
+
+				if (!dateField.checkValidity()) {
+					event.preventDefault();
+					dateFormGroup.classList.add("has-error");
+					dateField.focus();
+					return;
+				} else {
+					dateFormGroup.classList.remove("has-error");
+				}
+
+			});				
+		});
+
 	</script>
 </head>
 
@@ -45,7 +165,6 @@
 
 	<ul class="topnav container" id="myTopnav">
 		<li><a class="selected">Home</a></li>
-		<li><a href="contact.html">Contact</a></li>
 		<li><a href="aikido.html">Aikido</a></li>
 		<li><a href="kenjutsu.html">Kenjutsu</a></li>
 		<li><a href="internal_power.html">Internal Power</a></li>
@@ -102,6 +221,77 @@
 				Enrollment is ongoing for new students with or without prior martial arts experience.
 			</p>
 
+		</section>
+
+		<section>
+			<header>
+				<h2>Schedule a Visit</h2>
+				<p>
+					The best way to know if Aiki Budo of Denver is right for you is to visit and observe a class.
+					Please use the form below to schedule a free visit.
+				</p>
+			</header>
+
+			<form action="https://api.staticforms.dev/submit" method="POST" style="margin-top: 20px; max-width: 500px" novalidate>
+				<input type="hidden" name="apiKey" value="sf_g4394abnjni4c5a778f9nmdl">
+				<input type="hidden" name="redirectTo" value="http://www.aikibudoofdenver.com/thank-you">
+
+				<input type="text" name="honeypot" class="hidden">
+
+				<div class="form-group" id="name-form-group">
+					<label for="name">Name (required)</label>
+					<input type="text" id="name" name="name" required class="form-control">
+				</div>
+
+				<div class="form-group" id="email-form-group">
+					<label for="email">Email (required)</label>
+					<input type="email" id="email" name="email" required class="form-control">
+				</div>
+
+				<div class="form-group" id="phone-form-group">
+					<label for="phone">Phone (required)</label>
+					<input type="phone" id="phone" name="phone" required class="form-control">
+				</div>
+
+				<div class="form-group" id="date-of-visit-form-group">
+					<label for="date-of-visit">Date of Visit (required)</label>
+					<select class="form-control" id="date-of-visit" name="date-of-visit" required>
+  						<option></option>
+					</select>
+				</div>
+				
+				<button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Submit</button>
+			</form>
+
+		</section>
+
+		<section>
+			<header>
+				<h2>Contact Us</h2>
+			</header>
+			<address>
+				<table>
+					<tr>
+						<td class="no-border"><i class="fa fa-map-marker fa-fw"></i> &nbsp;</td>
+						<td class="no-border">
+							<a
+								href="https://www.google.com/maps/place/Aiki+Budo+of+Denver/@39.6848547,-104.9901342,17z/data=!3m1!4b1!4m5!3m4!1s0x876c7d836d76b415:0x84ff9eb146b3d68e!8m2!3d39.69716!4d-104.980746">
+								1787 S Broadway (Second Floor of DecorAsian)<br>
+								Denver, CO 80210
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td class="no-border"><i class="fa fa-envelope fa-fw"></i> &nbsp;</td>
+						<td class="no-border"><a href="mailto:aikibudoofdenver@gmail.com">aikibudoofdenver@gmail.com</a>
+						</td>
+					</tr>
+					<tr>
+						<td class="no-border"><i class="fa fa-phone fa-fw fa-flip-horizontal"></i> &nbsp;</td>
+						<td class="no-border"><a href="tel:7202327605">(720) 232-7605</a></td>
+					</tr>
+				</table>
+			</address>
 		</section>
 
 		<hr>

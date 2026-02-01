@@ -1,79 +1,102 @@
 .fa.fa-home {
   color: white !important;
 }
+
 .fa {
   color: gray;
 }
+
 a:link {
   color: gray;
 }
+
 a:visited {
   color: gray;
 }
+
 a:hover {
   color: gray;
   text-decoration: underline;
 }
+
 a:active {
   color: gray;
 }
+
 td.empty {
   background-color: gray;
 }
+
 td.empty2 {
   background-color: white;
   border: none;
   padding: 5px;
 }
+
 td.empty3 {
   background-color: gray;
   padding: 7px;
 }
+
 table {
   margin-top: 16px;
   margin-bottom: 16px;
 }
+
 th {
   background-color: white;
   color: black;
 }
-th, td {
+
+th,
+td {
   padding: 15px;
   text-align: center;
   border: 1px solid black;
 }
+
 .no-border {
   border: 0 !important;
   padding: 4px !important;
   text-align: left !important;
   vertical-align: text-top;
 }
+
 .subhead {
   font-weight: bold;
   font-size: larger;
 }
+
 .top-header {
   height: 48px;
 }
+
 h1 {
   font-size: 400%;
 }
-h1, h2, h3 {
+
+h1,
+h2,
+h3 {
   font-family: 'Kaushan Script', cursive;
 }
+
 h2 {
   margin-top: 36px;
   margin-left: -3px;
 }
+
 h4 {
-  margin-top: 26px; 
+  margin-top: 26px;
   font-weight: bold;
   padding-bottom: 0px;
 }
+
 h5 {
   font-weight: bold;
   padding-bottom: 0px;
 }
+
 footer {
   margin-bottom: 60px;
 }
@@ -83,10 +106,10 @@ section {
 }
 
 ul.topnav {
-    list-style-type: none;
-    margin-bottom: 20px;
-    overflow: hidden;
-    background-color: white;
+  list-style-type: none;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background-color: white;
 }
 
 ul.topnav li {
@@ -94,13 +117,13 @@ ul.topnav li {
 }
 
 ul.topnav li a {
-    display: inline-block;
-    color: dimgray;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    transition: 0.2s;
-    font-size: 16px;
+  display: inline-block;
+  color: dimgray;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.2s;
+  font-size: 16px;
 }
 
 ul.topnav li.icon {
@@ -124,6 +147,7 @@ ul.topnav li.icon a {
   ul.topnav li {
     display: none;
   }
+
   ul.topnav li.icon {
     float: right;
     display: inline-block;
@@ -136,16 +160,19 @@ ul.topnav li.icon a {
     padding-top: 40px;
     position: relative;
   }
+
   ul.topnav.responsive li.icon {
     position: absolute;
     right: 0;
     top: 0;
     margin-right: 15px;
   }
+
   ul.topnav.responsive li {
     float: none;
     display: inline;
   }
+
   ul.topnav.responsive li a {
     display: block;
     text-align: left;
@@ -187,7 +214,8 @@ ul.topnav li.icon a {
 }
 
 .kids {
-  font-family: 'Indie Flower', cursive;;
+  font-family: 'Indie Flower', cursive;
+  ;
   font-weight: bold;
 }
 
