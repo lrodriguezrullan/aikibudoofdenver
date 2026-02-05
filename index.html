@@ -37,12 +37,12 @@
 			}
 		}
 
-		document.addEventListener("DOMContentLoaded", function() {
-			
+		document.addEventListener("DOMContentLoaded", function () {
+
 			const select = document.getElementById("date-of-visit");
 
 			const options = {
-  				weekday: "long",
+				weekday: "long",
 				year: "numeric",
 				month: "long",
 				day: "numeric",
@@ -55,17 +55,17 @@
 				const date = new Date(tomorrow);
 				date.setDate(tomorrow.getDate() + i);
 
-				if(date.getDay() != 2 && date.getDay() != 4 && date.getDay() != 6) {
+				if (date.getDay() != 2 && date.getDay() != 4 && date.getDay() != 6) {
 					continue;
 				}
 
 				items.push(date.toLocaleDateString("en-US", options));
 			}
 
-			items.forEach(function(item) {
+			items.forEach(function (item) {
 				const option = document.createElement("option");
 				option.value = item;
-				option.textContent = item; 
+				option.textContent = item;
 				select.appendChild(option);
 			});
 
@@ -81,7 +81,7 @@
 			const phoneFormGroup = document.getElementById("phone-form-group");
 			const dateFormGroup = document.getElementById("date-of-visit-form-group");
 
-			nameField.addEventListener("input", function() {
+			nameField.addEventListener("input", function () {
 				if (!nameField.checkValidity()) {
 					nameFormGroup.classList.add("has-error");
 				} else {
@@ -89,7 +89,7 @@
 				}
 			});
 
-			emailField.addEventListener("input", function() {
+			emailField.addEventListener("input", function () {
 				if (!emailField.checkValidity()) {
 					emailFormGroup.classList.add("has-error");
 				} else {
@@ -97,7 +97,7 @@
 				}
 			});
 
-			phoneField.addEventListener("input", function() {
+			phoneField.addEventListener("input", function () {
 				if (!phoneField.checkValidity()) {
 					phoneFormGroup.classList.add("has-error");
 				} else {
@@ -105,7 +105,7 @@
 				}
 			});
 
-			dateField.addEventListener("input", function() {
+			dateField.addEventListener("input", function () {
 				if (!dateField.checkValidity()) {
 					dateFormGroup.classList.add("has-error");
 				} else {
@@ -113,7 +113,7 @@
 				}
 			});
 
-			form.addEventListener("submit", function(event) {
+			form.addEventListener("submit", function (event) {
 
 				if (!nameField.checkValidity()) {
 					event.preventDefault();
@@ -151,10 +151,22 @@
 					dateFormGroup.classList.remove("has-error");
 				}
 
-			});				
+			});
 		});
 
 	</script>
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=AW-827559667"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'AW-827559667');
+	</script>
+
+
 </head>
 
 <body style="font-family: 'Open Sans', sans-serif;">
@@ -229,7 +241,8 @@
 				</p>
 			</header>
 
-			<form action="https://api.staticforms.dev/submit" method="POST" style="margin-top: 20px; max-width: 500px" novalidate>
+			<form action="https://api.staticforms.dev/submit" method="POST" style="margin-top: 20px; max-width: 500px"
+				novalidate>
 				<input type="hidden" name="apiKey" value="sf_g4394abnjni4c5a778f9nmdl">
 				<input type="hidden" name="redirectTo" value="https://www.aikibudoofdenver.com/thank-you.html">
 
@@ -253,14 +266,14 @@
 				<div class="form-group" id="date-of-visit-form-group">
 					<label for="date-of-visit">Date of Visit (required)</label>
 					<select class="form-control" id="date-of-visit" name="date-of-visit" required>
-  						<option></option>
+						<option></option>
 					</select>
 				</div>
-				
+
 				<div class="g-recaptcha" data-sitekey="6LeNoV0sAAAAAAmVjvRSoa0O8K6Dww3XmEBNH9Ly"></div>
 
 				<button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Submit</button>
-				
+
 				<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 			</form>
 
