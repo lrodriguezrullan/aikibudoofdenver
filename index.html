@@ -154,6 +154,41 @@
 			});
 		});
 
+		// Countdown timer
+
+		function startTimer(duration, display) {
+			let timer = duration;
+			const countdown = setInterval(function () {
+				
+				let days = Math.floor(timer / (60 * 60 * 24));
+				let hours = Math.floor(timer / (60 * 60)) % 24;
+				let minutes = Math.floor(timer / 60) % 60;
+				let seconds = timer % 60;
+
+				display.textContent = 
+					String(days).padStart(3, '0') + ':' + 
+					String(hours).padStart(2, '0') + ':' + 
+					String(minutes).padStart(2, '0') + ':' + 
+					String(seconds).padStart(2, '0');
+				if (--timer < 0) {
+					clearInterval(countdown);
+					display.textContent = "000:00:00:00";
+				}
+			}, 1000);
+		}
+
+		function handleClick() {
+			window.location.href = "events.html#matsuoka_sensei_seminar";
+		}
+
+		window.addEventListener('load', function() {
+			let futureDateUTC = new Date(Date.UTC(2026, 4, 30, 16, 0, 0));
+			let now = new Date();
+			let difference = Math.floor((futureDateUTC - now) / 1000);
+
+			startTimer(difference, document.getElementById('timer'));
+		});
+
 	</script>
 
 	<!-- Google tag (gtag.js) -->
@@ -232,6 +267,15 @@
 
 		</section>
 
+		<div class="countdown-container" onclick="handleClick()">
+			<div class="countdown-title">
+				Seminar with Haruo Matsuoka Shihan, May 30 - 31, 2026
+			</div>
+			<div class="countdown-timer" id="timer">      
+				000:00:00:00
+			</div>
+		</div>
+	
 		<section>
 			<header>
 				<h2>Schedule a Visit</h2>

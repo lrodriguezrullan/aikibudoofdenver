@@ -232,3 +232,33 @@ a.kids {
   padding-top: 10px !important;
   padding-bottom: 8px !important;
 }
+
+.countdown-container {
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: center;
+  padding: 8px !important;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 3px;
+  color: black;
+}
+
+.countdown-container .countdown-timer {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.countdown-container:hover {
+  border-color: gray;
+  color: gray;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .countdown-container {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
