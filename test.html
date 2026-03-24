@@ -1,1 +1,87 @@
 <h1>TEST</h1>
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+<script type="text/javascript">
+    function startTimer(duration, display) {
+        let timer = duration;
+        const countdown = setInterval(function () {
+            
+            let days = Math.floor(timer / (60 * 60 * 24));
+            let hours = Math.floor(timer / (60 * 60)) % 24;
+            let minutes = Math.floor(timer / 60) % 60;
+            let seconds = timer % 60;
+
+            display.textContent = 
+                String(days).padStart(3, '0') + ':' + 
+                String(hours).padStart(2, '0') + ':' + 
+                String(minutes).padStart(2, '0') + ':' + 
+                String(seconds).padStart(2, '0');
+            if (--timer < 0) {
+                clearInterval(countdown);
+                display.textContent = "000:00:00:00";
+            }
+        }, 1000);
+    }
+
+    function handleClick() {
+        window.location.href = "events.html#matsuoka_sensei_seminar";
+    }
+
+    window.addEventListener('load', function() {
+        let futureDateUTC = new Date(Date.UTC(2026, 4, 30, 16, 0, 0));
+        let now = new Date();
+        let difference = Math.floor((futureDateUTC - now) / 1000);
+
+        startTimer(difference, document.getElementById('timer'));
+    });
+
+</script>
+
+<!-- <style>
+    .countdown-container {
+        margin-left: 20%;
+        margin-right: 20%;    
+        text-align: center;
+        padding: 8px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: black;
+        border-radius: 3px;
+        color: black;
+    }
+
+    .countdown-container.countdown-title {
+        text-align: center;
+    }
+    .countdown-container .countdown-timer {
+        font-size: 36px;
+        font-weight: bold;
+    }
+
+    .countdown-container:hover {
+        border-color: gray;
+        color: gray;
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 600px) {
+        .countdown-container {
+            margin-left: 10px; 
+            margin-right: 10px; 
+        }
+    }
+
+</style> -->
+
+<div class="countdown-container" onclick="handleClick()">
+    <div class="countdown-title">
+        <h4>
+            Seminar with Haruo Matsuoka Shihan, May 30 - 31, 2026
+        </h4>
+    </div>
+    <div class="countdown-timer" id="timer">      
+        000:00:00:00
+    </div>
+</div>
