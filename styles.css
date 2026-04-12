@@ -238,11 +238,6 @@ a.kids {
   margin-right: 25%;
   text-align: center;
   padding: 8px !important;
-  border-width: 1px;
-  border-style: solid;
-  border-color: black;
-  border-radius: 3px;
-  color: black;
 }
 
 .countdown-container .countdown-timer {
@@ -253,6 +248,38 @@ a.kids {
 .countdown-container:hover {
   border-color: gray;
   color: gray;
+  cursor: pointer;
+}
+
+.time-square {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 6px;
+  color: white;
+  background-color: black;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.time-square .time-unit {
+  padding-top: 5px;
+  padding-bottom: 0;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.time-square .time-unit-description {
+  text-align: center;
+  font-size: 12px;
+}
+
+.countdown-container:hover .time-square {
+  border-color: gray;
+  background-color: gray;
   cursor: pointer;
 }
 

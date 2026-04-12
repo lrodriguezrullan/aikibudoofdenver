@@ -156,7 +156,7 @@
 
 		// Countdown timer
 
-		function startTimer(duration, display) {
+		function startTimer(duration, daysElement, hoursElement, minutesElement, secondsElement) {
 			let timer = duration;
 			const countdown = setInterval(function () {
 				
@@ -165,14 +165,17 @@
 				let minutes = Math.floor(timer / 60) % 60;
 				let seconds = timer % 60;
 
-				display.textContent = 
-					String(days).padStart(3, '0') + ':' + 
-					String(hours).padStart(2, '0') + ':' + 
-					String(minutes).padStart(2, '0') + ':' + 
-					String(seconds).padStart(2, '0');
+				daysElement.textContent = String(days).padStart(2, '0');
+				hoursElement.textContent = String(hours).padStart(2, '0');
+				minutesElement.textContent = String(minutes).padStart(2, '0');
+				secondsElement.textContent = String(seconds).padStart(2, '0');
+
 				if (--timer < 0) {
 					clearInterval(countdown);
-					display.textContent = "000:00:00:00";
+					daysElement.textContent = '00';
+					hoursElement.textContent = '00';
+					minutesElement.textContent = '00';
+					secondsElement.textContent = '00';
 				}
 			}, 1000);
 		}
@@ -185,8 +188,12 @@
 			let futureDateUTC = new Date(Date.UTC(2026, 4, 30, 16, 0, 0));
 			let now = new Date();
 			let difference = Math.floor((futureDateUTC - now) / 1000);
+			let daysElement = document.getElementById('days');
+			let hoursElement = document.getElementById('hours');
+			let minutesElement = document.getElementById('minutes');
+			let secondsElement = document.getElementById('seconds');
 
-			startTimer(difference, document.getElementById('timer'));
+			startTimer(difference, daysElement, hoursElement, minutesElement, secondsElement);
 		});
 
 	</script>
@@ -269,11 +276,31 @@
 
 		<div class="countdown-container" onclick="handleClick()">
 			<div class="countdown-title">
-				Seminar with Haruo Matsuoka Shihan, May 30 - 31, 2026
+				<b>Seminar with Haruo Matsuoka Shihan</b><br>
+				May 30 - 31, 2026
 			</div>
-			<div class="countdown-timer" id="timer">      
-				000:00:00:00
+
+			<div class="time-square">
+				<div class="time-unit" id="days">00</div>
+				<div class="time-unit-description">DAYS</div>
 			</div>
+
+			<div class="time-square">
+				<div class="time-unit" id="hours">00</div>
+				<div class="time-unit-description">HOURS</div>
+			</div>
+
+			<div class="time-square">
+				<div class="time-unit" id="minutes">00</div>
+				<div class="time-unit-description">MINUTES</div>
+			</div>
+
+			<div class="time-square">
+				<div class="time-unit" id="seconds">00</div>
+				<div class="time-unit-description">SECONDS</div>
+			</div>
+
+
 		</div>
 	
 		<section>
